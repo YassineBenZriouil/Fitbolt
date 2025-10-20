@@ -1,11 +1,10 @@
-// navigation/AppNavigator.tsx
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from './routesConfig';
 
 const Stack = createNativeStackNavigator();
 
-const AppNavigator: React.FC = () => {
+const Navigation: React.FC = () => {
     return (
         <Stack.Navigator initialRouteName="Home">
             {Routes.map(route => (
@@ -15,4 +14,4 @@ const AppNavigator: React.FC = () => {
     );
 };
 
-export default AppNavigator;
+export default Navigation;
