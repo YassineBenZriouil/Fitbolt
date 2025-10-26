@@ -1,19 +1,37 @@
 import { ScaledSheet } from 'react-native-size-matters';
-import { Theme } from '../../theme/themes';
+import { Theme } from '@/theme/themes';
 
-export const createStyles = (theme: Theme) =>
+const createStyles = (theme: Theme) =>
     ScaledSheet.create({
         container: {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: theme.background, // dynamic
+            backgroundColor: theme.background,
         },
         text: {
             fontSize: '20@ms',
-            color: theme.text, // dynamic
+            color: theme.text,
+            marginBottom: '30@ms',
         },
-        button: {
-            marginTop: '20@ms',
+        toggleButton: {
+            backgroundColor: theme.primary,
+            paddingHorizontal: '20@ms',
+            paddingVertical: '10@ms',
+            borderRadius: '8@ms',
+            marginBottom: '15@ms',
+        },
+        navButton: {
+            backgroundColor: theme.primary,
+            paddingHorizontal: '20@ms',
+            paddingVertical: '10@ms',
+            borderRadius: '8@ms',
+        },
+        buttonText: {
+            color: '#FFFFFF',
+            fontSize: '16@ms',
+            fontWeight: 'bold',
         },
     });
+
+export default createStyles;

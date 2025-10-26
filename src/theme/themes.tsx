@@ -8,11 +8,11 @@ export interface Theme {
 export const lightTheme: Theme = {
     background: '#FFFFFF',
     text: '#000000',
-    primary: '#007AFF',
+    primary: '#007bffff',
 };
 
 export const darkTheme: Theme = {
-    background: '#121212',
-    text: '#FFFFFF',
-    primary: '#0A84FF',
+    background: '#000000ff',
+    text: '#ffffffff',
+    primary: '#ff0000ff',
 };

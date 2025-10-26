@@ -1,22 +1,35 @@
 import React, { useContext } from 'react';
-import { View, Text, Button } from 'react-native';
-import { ThemeContext } from '../../theme/themeProvider';
-import { createStyles } from './style';
+import { View, Text } from 'react-native';
+import createStyles from './style';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { ThemeContext } from '@/theme/themeProvider';
+import Button from '@/components/Button';
+import ThemeButton from '@/components/ThemeButton';
+
+type RootStackParamList = {
+    Profile: undefined;
+    Settings: undefined;
+};
 
 const Home: React.FC = () => {
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
     const { theme, toggleTheme } = useContext(ThemeContext);
-    const styles = createStyles(theme); // generate styles using current theme
+    const styles = createStyles(theme);
 
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Hello From Home</Text>
-            <View style={styles.button}>
-                <Button
-                    title="Toggle Theme"
-                    color={theme.primary}
-                    onPress={toggleTheme}
-                />
-            </View>
+            <ThemeButton />
+            <Button
+                text="Go to Profile"
+                navigateTo="Profile"
+                style={styles.navButton}
+            />
+            <Button
+                navigateTo="Settings"
+                style={styles.navButton}
+                text="Go to Settings"
+            ></Button>
         </View>
     );
 };

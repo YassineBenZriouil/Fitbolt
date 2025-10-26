@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
-import { Appearance, ColorSchemeName } from 'react-native';
+import { Appearance } from 'react-native';
 import { lightTheme, darkTheme, Theme } from './themes';
+import { ThemeStorage } from '@/utils/storage';
 
 interface ThemeContextProps {
     theme: Theme;
@@ -16,22 +17,42 @@ interface Props {
 }
 
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
-    const colorScheme = Appearance.getColorScheme();
-    const [theme, setTheme] = useState<Theme>(
-        colorScheme === 'dark' ? darkTheme : lightTheme,
-    );
+    const getInitialTheme = (): Theme => {
+        const savedTheme = ThemeStorage.get();
+        if (savedTheme) {
+            return savedTheme === 'dark' ? darkTheme : lightTheme;
+        }
+        // Fallback to system preference
+        const colorScheme = Appearance.getColorScheme();
+        return colorScheme === 'dark' ? darkTheme : lightTheme;
+    };
+
+    const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
     useEffect(() => {
-        const subscription = Appearance.addChangeListener(({ colorScheme }) => {
-            setTheme(colorScheme === 'dark' ? darkTheme : lightTheme);
-        });
+        const subscription = Appearance.addChangeListener(
+            ({ colorScheme: newColorScheme }) => {
+                // Only update if no manual preference is saved
+                const savedTheme = ThemeStorage.get();
+                if (!savedTheme) {
+                    setTheme(
+                        newColorScheme === 'dark' ? darkTheme : lightTheme,
+                    );
+                }
+            },
+        );
 
         // cleanup
         return () => subscription.remove();
     }, []);
 
     const toggleTheme = () => {
-        setTheme(prev => (prev === lightTheme ? darkTheme : lightTheme));
+        setTheme(prev => {
+            const newTheme = prev === lightTheme ? darkTheme : lightTheme;
+            // Persist the choice
+            ThemeStorage.set(newTheme === darkTheme ? 'dark' : 'light');
+            return newTheme;
+        });
     };
 
     return (
