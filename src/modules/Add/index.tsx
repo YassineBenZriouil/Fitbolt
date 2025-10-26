@@ -5,13 +5,13 @@ import { ThemeContext } from '@/theme/themeProvider';
 import Button from '@/components/Button';
 import ThemeButton from '@/components/ThemeButton';
 
-const Home: React.FC = () => {
+const AddFit: React.FC = () => {
     const { theme } = useContext(ThemeContext);
     const styles = createStyles(theme);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Hello From Home</Text>
+            <Text style={styles.text}>Hello From AddFit</Text>
             <ThemeButton />
             <Button
                 text="Go to Profile"
@@ -27,4 +27,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default AddFit;

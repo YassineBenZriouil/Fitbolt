@@ -1,7 +1,6 @@
-import { ScaledSheet } from 'react-native-size-matters';
-import { Theme } from '../../theme/themes';
+import { ScaledSheet } from 'react-native-size-matters/extend';
 
-const createStyles = (theme: Theme) =>
+const createStyles = () =>
     ScaledSheet.create({
         button: {
             backgroundColor: '#4CAF50',

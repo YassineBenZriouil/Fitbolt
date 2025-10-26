@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
     TouchableOpacity,
     Text,
@@ -9,8 +9,6 @@ import {
     View,
 } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { ScaledSheet } from 'react-native-size-matters';
-import { ThemeContext } from '../../theme/themeProvider';
 import createStyles from './style';
 
 interface ButtonProps {
@@ -33,8 +31,7 @@ const Button: React.FC<ButtonProps> = ({
     navigateTo,
 }) => {
     const navigation = useNavigation<NavigationProp<any>>();
-    const { theme } = useContext(ThemeContext);
-    const styles = createStyles(theme);
+    const styles = createStyles();
 
     const handlePress = (event: GestureResponderEvent) => {
         if (disabled) return;

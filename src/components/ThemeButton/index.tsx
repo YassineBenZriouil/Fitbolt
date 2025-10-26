@@ -10,7 +10,12 @@ const ThemeButton = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const styles = createStyles(theme);
 
-    const Icon = theme === lightTheme ? <MoonIcon /> : <SunIcon />;
+    const Icon =
+        theme === lightTheme ? (
+            <MoonIcon color={theme.background} />
+        ) : (
+            <SunIcon />
+        );
 
     return (
         <Button onPress={toggleTheme} style={styles.toggleButton} icon={Icon} />
