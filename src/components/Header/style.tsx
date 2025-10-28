@@ -8,34 +8,46 @@ const createStyles = (theme: Theme) =>
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '15@ms',
+            padding: '10@ms',
             backgroundColor: theme.background,
             borderBottomWidth: '1@ms',
             borderBottomColor: theme.highlight,
         },
+        textcontainer: {
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+        },
+        leftside: {
+            flexDirection: 'row',
+            gap: '10@ms',
+        },
+
         headerContent: {
             flexDirection: 'row',
             alignItems: 'center',
         },
         title: {
             color: theme.text,
-            fontSize: '18@ms',
+            fontSize: '14@ms',
             fontWeight: 'bold',
-            textAlign: 'center',
+
             flex: 1,
         },
         username: {
             color: theme.text,
-            fontSize: '12@ms',
-            textAlign: 'center',
+            fontSize: '10@ms',
+            textTransform: 'uppercase',
         },
         button: {
             padding: '10@ms',
         },
-        icon: {
-            width: '24@ms',
-            height: '24@ms',
-            tintColor: theme.text,
+        menuIcon: {
+            width: '35@ms',
+            color: theme.text,
+        },
+        moreIcon: {
+            width: '30@ms',
+            color: theme.text,
         },
     });
 
