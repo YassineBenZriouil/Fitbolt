@@ -7,16 +7,16 @@ export interface Theme {
 }
 
 export const lightTheme: Theme = {
-    background: '#E0E0E0', // Cool Gray
-    text: '#111111', // Jet Black
+    background: '#ffffffff', // Cool Gray
+    text: '#000000ff', // Jet Black
     primary: '#0077FF', // Vivid Blue
     shadow: '#111111', // Jet Black
     highlight: '#FFDD00', // Electric Yellow
 };
 
 export const darkTheme: Theme = {
-    background: '#111111', // Jet Black
-    text: '#FFFFFF', // White
+    background: '#000000ff', // Jet Black
+    text: '#ffffffff', // White
     primary: '#0077FF', // Vivid Blue
     shadow: '#FFFFFF', // White
     highlight: '#FFDD00', // Electric Yellow

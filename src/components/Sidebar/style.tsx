@@ -13,13 +13,19 @@ const createStyles = (theme: Theme) =>
             left: 0,
             width: deviceWidth,
             height: '100%',
-            flexDirection: 'row',
         },
         overlay: {
-            flex: 1,
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: deviceWidth,
+            height: '100%',
             backgroundColor: 'rgba(0,0,0,0.5)', // darkens the rest of the screen
         },
         sidebar: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
             width: sidebarWidth,
             height: '100%',
             backgroundColor: theme.background,
@@ -52,6 +58,23 @@ const createStyles = (theme: Theme) =>
         },
         logoutButton: {
             marginBottom: '15@ms',
+        },
+
+        profileImg: {
+            width: '50@ms',
+            height: '50@ms',
+            borderRadius: '25@ms',
+            marginBottom: '10@ms',
+        },
+        splitter: {
+            height: '1@ms',
+            backgroundColor: theme.highlight,
+            marginVertical: '10@ms',
+        },
+        email: {
+            fontSize: '14@ms',
+            color: theme.text,
+            marginBottom: '10@ms',
         },
     });
 
