@@ -9,25 +9,19 @@ const createStyles = (theme: Theme) =>
             alignItems: 'center',
             backgroundColor: theme.background,
         },
-        text: {
+        title: {
             fontSize: '20@ms',
             color: theme.text,
             marginBottom: '30@ms',
         },
-        toggleButton: {
-            backgroundColor: theme.primary,
+        submitButton: {
+            backgroundColor: theme.text,
             paddingHorizontal: '20@ms',
             paddingVertical: '10@ms',
             borderRadius: '8@ms',
             marginBottom: '15@ms',
         },
-        navButton: {
-            backgroundColor: theme.text,
-            paddingHorizontal: '20@ms',
-            paddingVertical: '10@ms',
-            borderRadius: '8@ms',
-        },
-        buttonText: {
+        submitButtonText: {
             color: theme.background,
             fontSize: '16@ms',
             fontWeight: 'bold',

@@ -6,7 +6,6 @@ const createStyles = (theme: Theme) =>
         toggleButton: {
             backgroundColor: theme.text,
             borderWidth: '2@ms',
-
             paddingHorizontal: '20@ms',
             paddingVertical: '10@ms',
             borderRadius: '8@ms',

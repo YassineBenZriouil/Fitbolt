@@ -27,14 +27,19 @@ const Home: React.FC = () => {
                     text="Go to Profile"
                     navigateTo="Profile"
                     style={styles.navButton}
+                    textStyle={styles.buttonText}
                 />
                 <Button
                     navigateTo="Settings"
                     style={styles.navButton}
+                    textStyle={styles.buttonText}
                     text="Go to Settings"
                 />
             </View>
-            <SideBar isOpen={sideBarOpen} onClose={() => setSideBarOpen(false)} />
+            <SideBar
+                isOpen={sideBarOpen}
+                onClose={() => setSideBarOpen(false)}
+            />
         </>
     );
 };
